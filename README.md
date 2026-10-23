@@ -1,7 +1,8 @@
 # Dashboard de Ingresos Veterinarios
 
 Dashboard en Power BI que analiza los ingresos de una clínica veterinaria durante 2024: cuánto dinero entra, por qué servicios, animales, veterinarios y meses.
-EN [read in English](readme-en.md)
+
+[read in English](readme-en.md)
 <p align="center">
   <img width="700" alt="Dashboard de Ingresos Veterinarios" src="https://github.com/user-attachments/assets/cbc7d128-5809-426d-b114-1f737afee8c8" />
 </p>
