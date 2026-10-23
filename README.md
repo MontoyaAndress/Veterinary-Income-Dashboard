@@ -90,8 +90,7 @@ Veterinary-Income-Dashboard/
 │   └── Datosveterinaria.xlsx
 ├── dashboard/
 │   └── Veterinary_Income_Dashboard.pbix
-└── images/
-    └── dashboard.png
+
 ```
 
 ## How to use
