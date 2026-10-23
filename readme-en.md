@@ -108,10 +108,3 @@ Veterinary-Income-Dashboard/
 - DAX
 - Excel
 
-## Acknowledgments
-
-This project was built following a tutorial by **Mau Duarte**. Thanks for the guidance and the dashboard idea.
-
-## Author
-
-Juan Andrés Montoya Zabaleta
