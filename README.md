@@ -1,71 +1,72 @@
-# Veterinary Income Dashboard
+# Dashboard de Ingresos Veterinarios
 
-Power BI dashboard that analyzes the income of a veterinary clinic during 2024: how much money comes in, from which services, animals, veterinarians and months.
+Dashboard en Power BI que analiza los ingresos de una clínica veterinaria durante 2024: cuánto dinero entra, por qué servicios, animales, veterinarios y meses.
 
-<img width="700" alt="Captura de pantalla 2026-10-23 173720" src="https://github.com/user-attachments/assets/cbc7d128-5809-426d-b114-1f737afee8c8" />
+<p align="center">
+  <img width="700" alt="Dashboard de Ingresos Veterinarios" src="https://github.com/user-attachments/assets/cbc7d128-5809-426d-b114-1f737afee8c8" />
+</p>
 
+## Cifras clave
 
-## Key figures
-
-| Metric | Value |
+| Métrica | Valor |
 |---|---|
-| Total income | $15,893,493 |
-| Records analyzed | 150 services |
-| Period | Jan 6, 2024 – Dec 3, 2024 |
-| Top service | Emergencia (~$4.2M) |
-| Top animal | Gato ($3,901,555) |
-| Top veterinarian | Dr. Conley ($3,595,813) |
-| Sterilized vs. not | 50.64% Sí / 49.36% No |
+| Ingreso total | $15,893,493 |
+| Registros analizados | 150 servicios |
+| Periodo | 6 de enero de 2024 – 3 de diciembre de 2024 |
+| Servicio con más ingresos | Emergencia (~$4.2M) |
+| Animal con más ingresos | Gato ($3,901,555) |
+| Veterinario con más ingresos | Dr. Conley ($3,595,813) |
+| Esterilizados vs. no esterilizados | 50.64% Sí / 49.36% No |
 
-> December looks very low because the data ends on Dec 3, not because of a real drop in income.
+> Diciembre se ve muy bajo porque los datos terminan el 3 de diciembre, no porque los ingresos hayan caído.
 
-## What the dashboard shows
+## Qué muestra el dashboard
 
-- **Total Incomes** card with the full amount (no "M" abbreviation).
-- **Incomes by Month**: line chart, January to December.
-- **Sterilized**: donut chart with the income split between sterilized and non-sterilized animals.
-- **Incomes by Dr.**, **Incomes by Animal** and **Incomes by Service**: ranked bar charts.
-- **Filters**: Treatment, Service, Sterilized (Sí / No) and Month.
+- **Total Incomes**: tarjeta con el monto completo (sin abreviar a "M").
+- **Incomes by Month**: gráfica de líneas de enero a diciembre.
+- **Sterilized**: gráfica de dona con la división de ingresos entre animales esterilizados y no esterilizados.
+- **Incomes by Dr.**, **Incomes by Animal** e **Incomes by Service**: gráficas de barras ordenadas de mayor a menor.
+- **Filtros**: Tratamiento, Servicio, Esterilizado (Sí / No) y Mes.
 
-## Data
+## Datos
 
-The dataset has 150 rows and 12 columns:
+La base tiene 150 filas y 12 columnas:
 
-| Column | Description |
+| Columna | Descripción |
 |---|---|
-| Fecha del servicio | Date of the service |
-| Nombre cliente | Client name |
-| Animal | Species (Perro, Gato, Ave, Conejo, Hámster) |
-| Raza mascota | Pet breed |
-| Nombre paciente | Pet name |
-| Esterilizado? | Whether the pet is sterilized (Sí / No) |
-| Servicio recibido | Service (Esterilización, Emergencia, Vacunación, Control de peso, Consulta general) |
-| Monto pagado | Amount paid |
-| Medico Veterinario que atendió | Veterinarian who attended |
-| Diagnóstico | Diagnosis |
-| Tratamiento | Treatment |
-| Region | Region |
+| Fecha del servicio | Fecha en que se dio el servicio |
+| Nombre cliente | Nombre del cliente |
+| Animal | Especie (Perro, Gato, Ave, Conejo, Hámster) |
+| Raza mascota | Raza de la mascota |
+| Nombre paciente | Nombre de la mascota |
+| Esterilizado? | Si la mascota está esterilizada (Sí / No) |
+| Servicio recibido | Servicio (Esterilización, Emergencia, Vacunación, Control de peso, Consulta general) |
+| Monto pagado | Monto pagado por el servicio |
+| Medico Veterinario que atendió | Veterinario que atendió |
+| Diagnóstico | Diagnóstico |
+| Tratamiento | Tratamiento aplicado |
+| Region | Región |
 
-The data is fictional and was used for practice purposes.
+Los datos son ficticios y se usaron con fines de práctica.
 
-### Data cleaning
+### Limpieza de datos
 
-`Datos_no_corregidos.csv` is the original raw file. `Datosveterinaria.xlsx` is the corrected version used in the report. Main fixes:
+`Datos_no_corregidos.csv` es el archivo original sin tratar. `Datosveterinaria.xlsx` es la versión corregida que se usa en el reporte. Principales correcciones:
 
-- Removed the title and empty rows at the top of the CSV.
-- Converted dates from text (`M/D/YYYY`) to a real date type.
-- Fixed the encoding of accented characters (á, é, í, ó).
-- Added the `Region` column.
+- Se quitaron el título y las filas vacías del inicio del CSV.
+- Las fechas pasaron de texto (`M/D/AAAA`) a tipo fecha.
+- Se corrigió la codificación de los acentos (á, é, í, ó).
+- Se agregó la columna `Region`.
 
 ## DAX
 
-**Full amount for the card** (avoids Power BI abbreviating to "16M"):
+**Monto completo para la tarjeta** (evita que Power BI lo abrevie a "16M"):
 
 ```DAX
 Monto completo = FORMAT(SUM(Data[Monto pagado]), "$#,##0")
 ```
 
-**Month table** (created with *New table*), used to show months as ENE, FEB, MAR... in order. Sort `MesAbreviado` by `MESNUM`:
+**Tabla de meses** (se crea con *Nueva tabla*), para mostrar los meses como ENE, FEB, MAR... en orden. Ordena `MesAbreviado` por `MESNUM`:
 
 ```DAX
 TablaMeses =
@@ -80,7 +81,7 @@ DATATABLE(
 )
 ```
 
-## Repository structure
+## Estructura del repositorio
 
 ```
 Veterinary-Income-Dashboard/
@@ -88,19 +89,19 @@ Veterinary-Income-Dashboard/
 ├── data/
 │   ├── Datos_no_corregidos.csv
 │   └── Datosveterinaria.xlsx
-├── dashboard/
-│   └── Veterinary_Income_Dashboard.pbix
-
+└── dashboard/
+    └── Veterinary_Income_Dashboard.pbix
 ```
 
-## How to use
+## Cómo usarlo
 
-1. Download `dashboard/Veterinary_Income_Dashboard.pbix`.
-2. Open it with [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
-3. If Power BI asks for the data source, point it to `data/Datosveterinaria.xlsx`.
+1. Descarga `dashboard/Veterinary_Income_Dashboard.pbix`.
+2. Ábrelo con [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+3. Si Power BI pide la fuente de datos, apúntalo a `data/Datosveterinaria.xlsx`.
 
-## Tools
+## Herramientas
 
 - Power BI Desktop
 - DAX
 - Excel
+
