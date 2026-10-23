@@ -1,6 +1,6 @@
     # Veterinary Income Dashboard
 
-🇪🇸 [Leer en español](README.md)
+[Leer en español](README.md)
 
 Power BI dashboard that analyzes the income of a veterinary clinic during 2024: how much money comes in, and from which services, animals, veterinarians and months.
 
